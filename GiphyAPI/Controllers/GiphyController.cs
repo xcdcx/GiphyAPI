@@ -2,6 +2,7 @@
 using GiphyAPI.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 
 namespace GiphyAPI.Controllers
@@ -19,7 +20,7 @@ namespace GiphyAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<GifDto>>> GetTrending(int offset)
+        public async Task<ActionResult<IEnumerable<GifDto>>> GetTrending([Range(0, 4999)] int offset)
         {
             try
             {
